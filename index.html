@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Testing Camera/Audio</h1>
+    <video></video>
+
+
+
+    <script>
+      
+      window.onload = function() {
+
+//add constraints object
+var constraints = { audio: true,
+                    video: true};
+
+//call getUserMedia, then the magic
+navigator.mediaDevices.getUserMedia(constraints).then(function(mediaStream){
+    var video = document.querySelector('video');
+    video.srcObject = mediaStream;
+    video.play();
+}).catch(function(err){
+    console.log("yikes, and err!" + err.message);
+});
+
+}
+    </script>
+</body>
+</html>
