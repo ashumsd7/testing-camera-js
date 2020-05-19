@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Testing Camera/Audio</h1>
+    <h1>Testing Camera/Audio...</h1>
     <video></video>
 
 
@@ -17,7 +17,11 @@
 
 //add constraints object
 var constraints = { audio: true,
-                    video: true};
+                    video: {
+                        width:400,
+                        facingMode: 'user'
+                        
+                    }};
 
 //call getUserMedia, then the magic
 navigator.mediaDevices.getUserMedia(constraints).then(function(mediaStream){
